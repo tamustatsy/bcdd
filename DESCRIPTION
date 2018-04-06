@@ -1,6 +1,6 @@
 Package: bcdd
 Title: Bayesian constrained density deconvolution 
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: person("Ya", "Su", email = "syusapp@gmail.com", role = c("aut", "cre"))
 Description: The main function in this package can be used to deconvolve a density with a unimodal and symmetric shape. The method is coined the name Constrained Bayes and is essentially a nonparametric approach. The speed is bumped by utilizing functions written in Rcpp. 
 Depends: R (>= 3.4.3)
