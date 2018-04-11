@@ -63,7 +63,7 @@ theta <- numeric(n)
 for(ii in 1:n){
     theta[ii] <- rgamma(1, shape = alpha[z[ii]], rate = beta[z[ii]])
 }
-x <- runif(n, min = -1, max = 1)                                                      #first generate uniform[-1,1] then scale by theta
+x <- runif(n, min = -1, max = 1)
 x <- x*theta
 x.init <- x
 
@@ -95,8 +95,8 @@ for(iii in 1:n.MCMC){
     x <- w - qnorm(uu_ext, mean = 0, sd = sd_u)
     
     #----------update z_1, ..., z_n----------#
-    d.ordinates = mydgamma(theta, s=alpha, r=beta)             #see Mydist.cpp
-    z <- mysample(1:K, d.ordinates, p)                         #see Mysample.cpp
+    d.ordinates = cand_dgamma(theta, s=alpha, r=beta)          #see Mydist.cpp
+    z <- sample_pos_z(1:K, d.ordinates, p)                     #see Mysample.cpp
     
     #------update theta_1,...,theta_n from a truncated gamma distribution------#
     sg <- alpha[z] - 1

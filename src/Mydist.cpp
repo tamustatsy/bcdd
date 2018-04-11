@@ -5,10 +5,10 @@
 using namespace Rcpp;
 using namespace arma;
 
-//' @title mydgamma
-//' @description The function \code{mydgamma} is meant for computing the matrix
-//' as the input for the function \code{mysample} where the family of densities 
-//' are gamma. See also \code{mysample}.
+//' @title cand_dgamma
+//' @description The function \code{cand_dgamma} is meant for computing the matrix
+//' as the input for the function \code{sample_pos_z} where the family of densities 
+//' are gamma. See also \code{sample_pos_z}.
 //' @param x a vector of values at which the gamma densities are evaluated.  
 //' @param s a vector of shape parameters.
 //' @param r a vector of rate parameters.
@@ -23,7 +23,7 @@ using namespace arma;
 //' d.ordinates <- mydgamma(theta, alpha, beta)
 //' @export 
 //[[Rcpp::export]]
-arma::mat mydgamma( NumericVector x, NumericVector s, NumericVector r){
+arma::mat cand_dgamma( NumericVector x, NumericVector s, NumericVector r){
     // Environment st("package:stats");
     // Function dg = st["dgamma"];
     arma::mat res(x.size(), s.size()); 

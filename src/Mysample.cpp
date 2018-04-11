@@ -6,10 +6,10 @@
 using namespace Rcpp;
 using namespace arma;
 
-//' @title mysample
-//' @description The function \code{mysample} is used to update/sample the indicators 
-//' z_1, ..., z_n. The core function is the basic sample function. The component 
-//' probability equals a density evaluated at the latent variable coexisting 
+//' @title sample_pos_z
+//' @description The function \code{sample_pos_z} is used to update/sample the 
+//' indicators z_1, ..., z_n. The core function is the basic sample function. The 
+//' component probability equals a density evaluated at the latent variable coexisting 
 //' with z and a probability that is associated with the (latent) true prior of 
 //' these component probability.  
 //' @param K a value that gives the total category that z varies from.
@@ -30,10 +30,10 @@ using namespace arma;
 //' for(jj in 1:K){
 //'     d.ordinates[,jj] <- dgamma(theta, shape=alpha[jj], rate=beta[jj])
 //' }
-//' z <- mysample(1:K, d.ordinates, p) 
+//' z <- sample_pos_z(1:K, d.ordinates, p) 
 //' @export
 //[[Rcpp::export]]
-arma::vec mysample(NumericVector K, const arma::mat& ord, const arma::colvec& pvec){
+arma::vec sample_pos_z(NumericVector K, const arma::mat& ord, const arma::colvec& pvec){
     //RNGScope scope;             
     const int size = 1;
     arma::vec z(ord.n_rows);
