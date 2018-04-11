@@ -6,34 +6,39 @@
 
 using namespace Rcpp;
 
-// mydgamma
-arma::mat mydgamma(NumericVector x, NumericVector s, NumericVector r);
-RcppExport SEXP _bcdd_mydgamma(SEXP xSEXP, SEXP sSEXP, SEXP rSEXP) {
+// cand_dgamma
+arma::mat cand_dgamma(NumericVector x, NumericVector s, NumericVector r);
+RcppExport SEXP _bcdd_cand_dgamma(SEXP xSEXP, SEXP sSEXP, SEXP rSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
     Rcpp::traits::input_parameter< NumericVector >::type s(sSEXP);
     Rcpp::traits::input_parameter< NumericVector >::type r(rSEXP);
-    rcpp_result_gen = Rcpp::wrap(mydgamma(x, s, r));
+    rcpp_result_gen = Rcpp::wrap(cand_dgamma(x, s, r));
     return rcpp_result_gen;
 END_RCPP
 }
-// mysample
-arma::vec mysample(NumericVector K, const arma::mat& ord, const arma::colvec& pvec);
-RcppExport SEXP _bcdd_mysample(SEXP KSEXP, SEXP ordSEXP, SEXP pvecSEXP) {
+// sample_pos_z
+arma::vec sample_pos_z(NumericVector K, const arma::mat& ord, const arma::colvec& pvec);
+RcppExport SEXP _bcdd_sample_pos_z(SEXP KSEXP, SEXP ordSEXP, SEXP pvecSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< NumericVector >::type K(KSEXP);
     Rcpp::traits::input_parameter< const arma::mat& >::type ord(ordSEXP);
     Rcpp::traits::input_parameter< const arma::colvec& >::type pvec(pvecSEXP);
-    rcpp_result_gen = Rcpp::wrap(mysample(K, ord, pvec));
+    rcpp_result_gen = Rcpp::wrap(sample_pos_z(K, ord, pvec));
     return rcpp_result_gen;
 END_RCPP
 }
 
+RcppExport SEXP _bcdd_mydgamma(SEXP, SEXP, SEXP);
+RcppExport SEXP _bcdd_mysample(SEXP, SEXP, SEXP);
+
 static const R_CallMethodDef CallEntries[] = {
+    {"_bcdd_cand_dgamma", (DL_FUNC) &_bcdd_cand_dgamma, 3},
+    {"_bcdd_sample_pos_z", (DL_FUNC) &_bcdd_sample_pos_z, 3},
     {"_bcdd_mydgamma", (DL_FUNC) &_bcdd_mydgamma, 3},
     {"_bcdd_mysample", (DL_FUNC) &_bcdd_mysample, 3},
     {NULL, NULL, 0}
