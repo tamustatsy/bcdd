@@ -3,3 +3,6 @@
 export(cand_dgamma)
 export(fun_integ)
 export(sample_pos_z)
+exportPattern("(\"^[^\\\\.]\")")
+importFrom("(Rcpp,","evalCpp)")
+useDynLib("(bcdd)")
