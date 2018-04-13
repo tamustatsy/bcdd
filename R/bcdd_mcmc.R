@@ -26,7 +26,8 @@
 #' sd_u <- 1.29
 #' u <- rnorm(n, mean = 0, sd = sd_u)               
 #' w <- x + u
-#' bcdd_mcmc(w, sd_u, n.burnin=100, n.MCMC=500)
+#' res <- bcdd_mcmc(w, sd_u, n.burnin=100, n.MCMC=500)
+#' plot(res$x, res$y, type="l", xlab="x", ylab=NULL)
 #' @useDynLib bcdd
 #' @importFrom Rcpp evalCpp
 #' @exportPattern "^[^\\.]"
