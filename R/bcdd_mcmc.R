@@ -27,9 +27,9 @@
 #' u <- rnorm(n, mean = 0, sd = sd_u)               
 #' w <- x + u
 #' bcdd_mcmc(w, sd_u, n.burnin=100, n.MCMC=500)
-#' @useDynLib(bcdd)
-#' @importFrom(Rcpp, evalCpp)
-#' @exportPattern("^[^\\.]")
+#' @useDynLib bcdd
+#' @importFrom Rcpp evalCpp
+#' @exportPattern "^[^\\.]"
 
 
 bcdd_mcmc <- function(w, sd_u, n.burnin=1000, n.MCMC=5000, hpar=list(m=20, K=8, 
