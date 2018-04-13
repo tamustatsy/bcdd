@@ -57,8 +57,8 @@ alpha.proposed <- numeric(K)
 ##################
 
 beta <- rgamma(K, shape = Xi_1, rate = Xi_2)
-alpha <- rtrunc(K, "exp", a = tt, b = Inf, rate = lambda)
-p <- rdirichlet(1, rep(m/K, K))
+alpha <- truncdist::rtrunc(K, "exp", a = tt, b = Inf, rate = lambda)
+p <- MCMCpack::rdirichlet(1, rep(m/K, K))
 z <- sample(1:K, size = n, prob = p, replace = TRUE)
 theta <- numeric(n)
 for(ii in 1:n){
@@ -118,7 +118,7 @@ for(iii in 1:n.MCMC){
     }
     
     #----------update p_1, ..., p_K----------#
-    p = rdirichlet(1,m/K + n.kk.z)
+    p = MCMCpack::rdirichlet(1,m/K + n.kk.z)
     
     #----------update beta_1, ..., beta_K----------#
     beta <- rgamma(rep(1, K), shape = alpha*n.kk.z + Xi_1,
@@ -127,7 +127,7 @@ for(iii in 1:n.MCMC){
     #----------update alpha_1, ..., alpha_K----------#
     
     for(kk in 1:K){
-        alpha.proposed[kk] <- rtrunc(1,"gamma",a=tt,b=Inf,shape = shape.lambda,
+        alpha.proposed[kk] <- truncdist::rtrunc(1,"gamma",a=tt,b=Inf,shape = shape.lambda,
                                      rate = shape.lambda/alpha[kk])
         tp_proposed <- 1 - pgamma(tt,shape.lambda,rate = shape.lambda/alpha[kk])
         tp_current <- 1 - pgamma(tt,shape.lambda,rate = shape.lambda/alpha.proposed[kk])
