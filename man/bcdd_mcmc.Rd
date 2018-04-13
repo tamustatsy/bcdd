@@ -37,9 +37,10 @@ hierarchical models. The speed is bumped by utilizing functions written in Rcpp.
 }
 \examples{
 df.t <- 5
+n <- 500
 x <- rt(n, df = df.t)
 sd_u <- 1.29
 u <- rnorm(n, mean = 0, sd = sd_u)               
 w <- x + u
-ddsc_mcmc(w, sd_u, n.burnin=100, n.MCMC=500)
+bcdd_mcmc(w, sd_u, n.burnin=100, n.MCMC=500)
 }

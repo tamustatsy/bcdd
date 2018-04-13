@@ -12,7 +12,6 @@
 #' at x_i.
 #' @examples
 #' N <- 500
-#' K <- 3
 #' alpha <- c(2.928, 2.979, 2.754)
 #' beta <- c(0.124, 0.238, 0.045)
 #' theta <-  rgamma(N, shape=2.6, rate=0.3)

@@ -21,11 +21,12 @@
 #' variable (y) evaluated on a grid (x) chosen automatically in the function.
 #' @examples 
 #' df.t <- 5
+#' n <- 500
 #' x <- rt(n, df = df.t)
 #' sd_u <- 1.29
 #' u <- rnorm(n, mean = 0, sd = sd_u)               
 #' w <- x + u
-#' ddsc_mcmc(w, sd_u, n.burnin=100, n.MCMC=500)
+#' bcdd_mcmc(w, sd_u, n.burnin=100, n.MCMC=500)
 
 
 bcdd_mcmc <- function(w, sd_u, n.burnin=1000, n.MCMC=5000, hpar=list(m=20, K=8, 
