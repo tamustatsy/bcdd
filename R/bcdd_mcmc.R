@@ -75,6 +75,7 @@ x.init <- x
 # Start MCMC #
 ##############
 
+lfg <- 200                                            #indicates length for grid
 density.x <- rep(0, lfg)
 for(iii in 1:n.MCMC){
     if(iii%%100==0)
@@ -148,7 +149,6 @@ for(iii in 1:n.MCMC){
     inds.to.replace = (1:K)[acc.prob<mh.ratio]
     alpha[inds.to.replace] = alpha.proposed[inds.to.replace]
     
-    lfg <- 200                                        #indicates length for grid
     integ_grid <- numeric(lfg)
     x.grid <- seq(0, max(abs(w)), length = lfg)
     if(iii > n.burnin){
