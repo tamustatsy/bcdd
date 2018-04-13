@@ -33,14 +33,9 @@ BEGIN_RCPP
 END_RCPP
 }
 
-RcppExport SEXP _bcdd_mydgamma(SEXP, SEXP, SEXP);
-RcppExport SEXP _bcdd_mysample(SEXP, SEXP, SEXP);
-
 static const R_CallMethodDef CallEntries[] = {
     {"_bcdd_cand_dgamma", (DL_FUNC) &_bcdd_cand_dgamma, 3},
     {"_bcdd_sample_pos_z", (DL_FUNC) &_bcdd_sample_pos_z, 3},
-    {"_bcdd_mydgamma", (DL_FUNC) &_bcdd_mydgamma, 3},
-    {"_bcdd_mysample", (DL_FUNC) &_bcdd_mysample, 3},
     {NULL, NULL, 0}
 };
 
